@@ -24,3 +24,14 @@ jobs:
 
     - name: Run main.py
       run: python main.py
+
+    - name: Commit and push generated PDF
+        env:
+          TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        run: |
+          git config --global user.name 'advait-panicker'
+          git config --global user.email 'advait-panicker@users.noreply.github.com'
+          git add "Advait Panicker Resume.pdf"
+          git add README.md
+          git commit -m "Automated render of main.pdf from main.tex"
+          git push
