@@ -26,11 +26,11 @@ jobs:
       run: python main.py ${{ secrets.API_KEY }}
 
     - name: Commit and push generated PDF
-        env:
-          TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-        run: |
-          git config --global user.name 'advait-panicker'
-          git config --global user.email 'advait-panicker@users.noreply.github.com'
-          git add main.csv
-          git commit -m "New data entry"
-          git push
+      env:
+        TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+      run: |
+        git config --global user.name 'advait-panicker'
+        git config --global user.email 'advait-panicker@users.noreply.github.com'
+        git add main.csv
+        git commit -m "New data entry"
+        git push
