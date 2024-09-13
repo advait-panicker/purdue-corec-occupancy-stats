@@ -23,7 +23,7 @@ jobs:
         pip install -r requirements.txt
 
     - name: Run main.py
-      run: python main.py
+      run: python main.py ${{ secrets.API_KEY }}
 
     - name: Commit and push generated PDF
         env:
@@ -31,7 +31,6 @@ jobs:
         run: |
           git config --global user.name 'advait-panicker'
           git config --global user.email 'advait-panicker@users.noreply.github.com'
-          git add "Advait Panicker Resume.pdf"
-          git add README.md
-          git commit -m "Automated render of main.pdf from main.tex"
+          git add main.csv
+          git commit -m "New data entry"
           git push
