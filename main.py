@@ -1,7 +1,11 @@
 import requests
 import csv
+import os
+import sys
 
-url = 'https://goboardapi.azurewebsites.net/api/FacilityCount/GetCountsByAccount?AccountAPIKey=aedeaf92-036d-4848-980b-7eb5526ea40c'
+API_KEY = sys.argv[1] if len(sys.argv) > 1 else None
+
+url = f'https://goboardapi.azurewebsites.net/api/FacilityCount/GetCountsByAccount?AccountAPIKey={API_KEY}'
 
 response = requests.get(url)
 
